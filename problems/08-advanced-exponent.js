@@ -41,7 +41,10 @@ times `advancedExponent` is being recursively called.
 
 
 function advancedExponent(b, n) {
-  // Your code here 
+  //the function shhould handle both positive and negative exponents
+  //for even exponents, 
+  //for odd exponents
+  //more to come
 }
 
 
