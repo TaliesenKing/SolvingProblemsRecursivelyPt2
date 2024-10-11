@@ -39,12 +39,34 @@ be recursively calling `advancedExponent`. Find a way to visually see how many
 times `advancedExponent` is being recursively called.
 ***********************************************************************/
 
+const exponent = require("./07-exponent");
 
-function advancedExponent(b, n) {
+
+function advancedExponent(num, power) {
   //the function shhould handle both positive and negative exponents
-  //for even exponents, 
-  //for odd exponents
-  //more to come
+  //for even exponents, it should square the result of exponent(num, power / 2).
+  //for odd exponents it should multiply the base num by the square of exponent(num, (power - 1) / 2)
+  //negative exponents should return the reciprocal of the positive exponent result
+  //no built in exponentiation operators (like **)
+  //step 1: Base Case
+if (power === 0) {
+  return 1;
+}
+  //step 2: If power is negative, compute the reciprocal
+if (power < 0) {
+  return 1/ advancedExponent(num, -power);
+}
+  //step 3: if the power is even
+if (power % 2 === 0) {
+  let halfPower = advancedExponent(num, power / 2);
+  return halfPower * halfPower;
+}
+  //step 4: if the power is odd
+else {
+  let halfPower = advancedExponent(num, Math.floor(power / 2));
+  return num * halfPower * halfPower;
+  }
+
 }
 
 
